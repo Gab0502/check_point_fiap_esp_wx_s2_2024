@@ -7,3 +7,9 @@ Por: Professor Fellipe Souto.
 
 1. [CHk_1 :: Problema: Compressão de dados gênicos](checkpoint_1/PROBLEM.md)
 
+## Participantes
+
+- Enricco Rossi de Souza Carvalho Miranda - RM51717
+- Gabriel Marquez Trevisan - RM99227
+- Guilherme Silva dos Santos - RM551168
+- Kayque Moraes Dias - RM97592
