@@ -12,4 +12,4 @@ Por: Professor Fellipe Souto.
 - Enricco Rossi de Souza Carvalho Miranda - RM51717
 - Gabriel Marquez Trevisan - RM99227
 - Guilherme Silva dos Santos - RM551168
-- Kayque Moraes Dias - RM97592
+- Samuel Ramos de Almeida - RM99134
