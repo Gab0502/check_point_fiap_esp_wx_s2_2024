@@ -13,25 +13,22 @@
 
 package br.com.fiap.twoespwx.libunclepresser;
 
+import br.com.fiap.twoespwx.libunclepresser.inputs.ReadFile;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        String inputFilename = "checkpoint_1/libunclepresser/inputs/input1.txt";
-        String outputFilename = "checkpoint_1/libunclepresser/outputs/OUTPUT1.TXT";
+import java.util.List;
 
-        NucleotidioInputReader nir = new NucleotidioInputReader();
-        NucletidioOutputWriter now = new NucletidioOutputWriter();
+public class App {
 
-        List<String> lines = nir.readWithScanner(inputFilename);
+    public static void main(String[] args) {
+        ReadFile arquivo = new ReadFile();
 
-        for (String line : lines){
+        List<String> lines = arquivo.readWithFileInputStream();
+
+        for (String line : lines) {
             System.out.println(line);
         }
-
-
     }
 }
+
 
 
