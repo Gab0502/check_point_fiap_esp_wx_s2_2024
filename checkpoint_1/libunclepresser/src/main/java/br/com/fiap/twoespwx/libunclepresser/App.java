@@ -29,9 +29,12 @@ public class App {
             int C =0;
             int T =0;
             int G= 0;
+            System.out.println(line);
+            if(line.length() == 0){
+                break;
+            }
             for (int i = 0; i < line.length(); i++) {
                 char caracter = line.charAt(i);
-                System.out.println(caracter);
                 switch(caracter){
                     case 'A':
                         A+=1;
@@ -44,7 +47,8 @@ public class App {
                 }
             }
             System.out.println("proxima linha");
-            System.out.println(A);
+            String numerado = "A"+A+"C"+C+"T"+T+"G"+G;
+            System.out.println(numerado);
         }
     }
 }
