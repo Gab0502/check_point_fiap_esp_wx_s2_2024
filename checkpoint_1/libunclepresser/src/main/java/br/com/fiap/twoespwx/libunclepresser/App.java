@@ -23,9 +23,28 @@ public class App {
         ReadFile arquivo = new ReadFile();
 
         List<String> lines = arquivo.readWithFileInputStream();
-
+        System.out.println(lines);
         for (String line : lines) {
-            System.out.println(line);
+            int A =0;
+            int C =0;
+            int T =0;
+            int G= 0;
+            for (int i = 0; i < line.length(); i++) {
+                char caracter = line.charAt(i);
+                System.out.println(caracter);
+                switch(caracter){
+                    case 'A':
+                        A+=1;
+                    case 'C':
+                        C+=1;
+                    case 'T':
+                        T+=1;
+                    case 'G':
+                        G+=1;
+                }
+            }
+            System.out.println("proxima linha");
+            System.out.println(A);
         }
     }
 }
