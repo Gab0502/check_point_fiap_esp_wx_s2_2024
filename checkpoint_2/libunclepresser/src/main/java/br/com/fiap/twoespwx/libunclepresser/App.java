@@ -13,22 +13,38 @@
 
 package br.com.fiap.twoespwx.libunclepresser;
 
-
 import br.com.fiap.twoespwx.libunclepresser.random.NucleotidioRandom;
 
-import java.util.List;
-
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-
         NucleotidioRandom random = new NucleotidioRandom();
+        Scanner scanner = new Scanner(System.in);
+        int quantidade = 0;
 
-        System.out.println(random.randomSequenceGenerator(4));
+        while (true) {
+            System.out.print("Digite a quantidade de nucleotídeos: ");
+            try {
+                quantidade = scanner.nextInt();
+                if (quantidade > 0) {
+                    break;
+                } else {
+                    System.out.println("Por favor, digite um número maior que zero.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Por favor, digite um número inteiro.");
+                scanner.next();
+            }
+        }
 
+        System.out.println(random.randomSequenceGenerator(quantidade));
     }
 }
+
+
 
 
 
