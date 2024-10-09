@@ -14,6 +14,7 @@
 package br.com.fiap.twoespwx.libunclepresser;
 
 import br.com.fiap.twoespwx.libunclepresser.inputs.ReadFile;
+import br.com.fiap.twoespwx.libunclepresser.output.SaveFile;
 
 import java.util.List;
 
@@ -21,6 +22,8 @@ public class App {
 
     public static void main(String[] args) {
         ReadFile arquivo = new ReadFile();
+        SaveFile salvar = new SaveFile();
+
 
         List<String> lines = arquivo.readWithFileInputStream();
         System.out.println(lines);
@@ -38,17 +41,25 @@ public class App {
                 switch(caracter){
                     case 'A':
                         A+=1;
+                        break;
                     case 'C':
                         C+=1;
+                        break;
                     case 'T':
                         T+=1;
+                        break;
                     case 'G':
                         G+=1;
+                        break;
+                    default:
+                        break;
                 }
             }
             System.out.println("proxima linha");
             String numerado = "A"+A+"C"+C+"T"+T+"G"+G;
             System.out.println(numerado);
+            salvar.saveContentInFile(numerado);
+
         }
     }
 }
