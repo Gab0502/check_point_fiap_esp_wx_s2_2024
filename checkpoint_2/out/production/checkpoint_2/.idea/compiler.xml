@@ -9,8 +9,5 @@
         <module name="CHECKPOINT_1_GRUPO_BATATA_DOCE" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="OUTPUT" target="18" />
-    </bytecodeTargetLevel>
   </component>
 </project>

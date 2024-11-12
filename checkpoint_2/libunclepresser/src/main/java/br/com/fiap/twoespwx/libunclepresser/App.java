@@ -1,50 +1,57 @@
-/* 
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- *
- * Grupo: ScriptFlow
- * Autores: 
- *      - Enricco Rosse de Souza Carvalho     -   rm551717@fiap.com.br
- *      - Gabriel Marquez Trevisan     -   rm99227@fiap.com.br
- *      - Guilherme Silva dos Santos    -   rm551168@fiap.com.br
- *      - Samuel Ramos de Almeida   -   rm991134@fiap.com.br
- */
-
 package br.com.fiap.twoespwx.libunclepresser;
 
+import br.com.fiap.twoespwx.libunclepresser.output.SaveFile;
 import br.com.fiap.twoespwx.libunclepresser.random.NucleotidioRandom;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        NucleotidioRandom random = new NucleotidioRandom();
-        Scanner scanner = new Scanner(System.in);
-        int quantidade = 0;
+        if (args.length != 2) {
+            System.out.println("Uso: java -jar <path/to/jar/file> size:<numero-inteiro-maior-que-zero> output:<nome-do-arquivo-de-saida>.txt");
+            return;
+        }
 
-        while (true) {
-            System.out.print("Digite a quantidade de nucleotídeos: ");
-            try {
-                quantidade = scanner.nextInt();
-                if (quantidade > 0) {
-                    break;
-                } else {
-                    System.out.println("Por favor, digite um número maior que zero.");
+        int quantidade = 0;
+        String fileName = null;
+
+        for (String arg : args) {
+            if (arg.startsWith("size:")) {
+                try {
+                    quantidade = Integer.parseInt(arg.substring(5));
+                    if (quantidade <= 0) {
+                        System.out.println("Erro: 'size' deve ser um número inteiro maior que zero.");
+                        return;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Erro: 'size' deve ser um número inteiro.");
+                    return;
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Entrada inválida. Por favor, digite um número inteiro.");
-                scanner.next();
+            } else if (arg.startsWith("output:")) {
+                fileName = arg.substring(7);
+                if (!fileName.endsWith(".txt")) {
+                    System.out.println("Erro: 'output' deve terminar com '.txt'.");
+                    return;
+                }
+            } else {
+                System.out.println("Erro: Parâmetro desconhecido " + arg);
+                return;
             }
         }
 
-        System.out.println(random.randomSequenceGenerator(quantidade));
+        if (quantidade > 0 && fileName != null) {
+            NucleotidioRandom random = new NucleotidioRandom();
+            SaveFile saveFile = new SaveFile();
+
+            StringBuilder sequenceBuilder = new StringBuilder();
+            sequenceBuilder.append(random.randomSequenceGenerator(quantidade));
+
+            System.out.println("Sequência gerada: " + sequenceBuilder.toString());
+
+            String resultado = saveFile.saveContentInFile(sequenceBuilder.toString(), fileName);
+            System.out.println(resultado);
+        } else {
+            System.out.println("Erro: Parâmetros inválidos.");
+        }
     }
 }
-
-
-
-
-
+    

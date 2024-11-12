@@ -5,13 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/libunclepresser/pom.xml" />
-        <option value="$PROJECT_DIR$/OUTPUT/pom.xml" />
       </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/OUTPUT/pom.xml" />
-      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">

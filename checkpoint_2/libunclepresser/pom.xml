@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.fiap.twoespwx.libunclepresser</groupId>
-  <artifactId>CHECKPOINT_1_GRUPO_BATATA_DOCE</artifactId>
+  <artifactId>CHECKPOINT_2_GRUPO_SCRIPTSPARK</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>libunclepresser</name>
